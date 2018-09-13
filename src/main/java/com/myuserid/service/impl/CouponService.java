@@ -1,6 +1,6 @@
 package com.myuserid.service.impl;
 
-import com.myuserid.dao.CouponBatchInfoMapper;
+import com.myuserid.dao.retail.CouponBatchInfoMapper;
 import com.myuserid.pojo.dbentity.CouponBatchInfo;
 import com.myuserid.pojo.response.APIResponse;
 import com.myuserid.service.ICouponService;

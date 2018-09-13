@@ -1,4 +1,4 @@
-package com.myuserid.dao;
+package com.myuserid.dao.retail;
 
 import com.myuserid.pojo.dbentity.City;
 import org.apache.ibatis.annotations.Mapper;

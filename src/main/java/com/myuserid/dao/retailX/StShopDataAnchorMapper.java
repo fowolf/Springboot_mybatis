@@ -1,6 +1,5 @@
-package com.myuserid.dao;
+package com.myuserid.dao.retailX;
 
-import com.myuserid.pojo.dbentity.CouponBatchInfo;
 import com.myuserid.pojo.dbentity.StShopDataAnchor;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
