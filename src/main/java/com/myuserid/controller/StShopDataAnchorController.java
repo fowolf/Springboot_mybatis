@@ -1,5 +1,6 @@
 package com.myuserid.controller;
 
+import com.myuserid.auth.SignRequired;
 import com.myuserid.pojo.dbentity.StShopDataAnchor;
 import com.myuserid.pojo.request.IdRequest;
 import com.myuserid.pojo.request.ShopDataAnchorRequest;
@@ -42,6 +43,7 @@ public class StShopDataAnchorController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @SignRequired
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<APIResponse<StShopDataAnchor>> update(@RequestBody ShopDataAnchorRequest request) {
