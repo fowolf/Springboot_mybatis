@@ -2,14 +2,16 @@ package com.myuserid.Interceptor;
 
 import com.myuserid.auth.SignRequired;
 import com.myuserid.exception.BusinessException;
+import com.myuserid.pojo.dbentity.retailX.PKey;
 import com.myuserid.pojo.enums.StatusCode;
+import com.myuserid.service.IPKeyService;
 import com.myuserid.utils.MD5Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,10 +25,11 @@ import java.util.TreeMap;
  * 签名拦截器
  * Created by Administrator on 2018/8/1.
  */
-public class SignInterceptor extends HandlerInterceptorAdapter {
+public class SignInterceptor implements HandlerInterceptor {
 
-    @Value("${app.secret}")
-    private String AppSecret;
+    @Autowired
+    private IPKeyService pKeyService;
+
     private static final Logger logger = LoggerFactory.getLogger(SignInterceptor.class);
 
     @Override
@@ -38,8 +41,9 @@ public class SignInterceptor extends HandlerInterceptorAdapter {
             return true;
         }
 
-        System.out.println("need sign AppSecret:" + AppSecret);
-        boolean right = verifySign(AppSecret, request);
+        PKey pKey = pKeyService.getKeyByChannel("html5");
+        System.out.println("need sign AppSecret:" + pKey.getPKey());
+        boolean right = verifySign(pKey.getPKey(), request);
         if (right) {
             return true;
         }

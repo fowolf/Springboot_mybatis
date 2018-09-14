@@ -1,4 +1,4 @@
-package com.myuserid.dao.retailX;
+package com.myuserid.dao.retail;
 
 import com.myuserid.pojo.dbentity.StShopDataAnchor;
 import org.apache.ibatis.annotations.Mapper;
@@ -14,15 +14,15 @@ import java.util.List;
 @Mapper
 public interface StShopDataAnchorMapper {
 
-    @Select("select * from StShopDataAnchor")
+    @Select("select * from table")
     List<StShopDataAnchor> findAll();
 
-    @Select("select * from StShopDataAnchor where shopno = #{shopNo}")
+    @Select("select * from table where shopno = #{shopNo}")
     StShopDataAnchor findByShopNo(String shopNo);
 
-    @Select("select * from StShopDataAnchor where id = #{id}")
+    @Select("select * from table where id = #{id}")
     StShopDataAnchor getById(int id);
 
-    @Update("update StShopDataAnchor set shopid=#{shopId}, shopno=#{shopNo}, dateline=#{dateLine}, createtime=#{createTime}, updatetime=#{updateTime} where id = #{id} ")
+    @Update("update table set shopid=#{shopId}, shopno=#{shopNo}, dateline=#{dateLine}, createtime=#{createTime}, updatetime=#{updateTime} where id = #{id} ")
     int UpdateById(StShopDataAnchor shopDataAnchor);
 }

@@ -15,19 +15,19 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "com.myuserid.dao.retail", sqlSessionTemplateRef = "retailSqlSessionTemplate")
-public class RetailDataSource {
+@MapperScan(basePackages = "com.myuserid.dao.first", sqlSessionTemplateRef = "firstSqlSessionTemplate")
+public class FirstDataSource {
 
     @Bean
-    @ConfigurationProperties(prefix = "spring.datasource.retail-datasource")
+    @ConfigurationProperties(prefix = "spring.datasource.first-datasource")
     @Primary
-    public DataSource retailData() {
+    public DataSource firstData() {
         return DataSourceBuilder.create().build();
     }
 
     @Bean
     @Primary
-    public SqlSessionFactory retailSqlSessionFactory(@Qualifier("retailData") DataSource dataSource) throws Exception {
+    public SqlSessionFactory firstSqlSessionFactory(@Qualifier("firstData") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
         return bean.getObject();
@@ -35,13 +35,13 @@ public class RetailDataSource {
 
     @Bean
     @Primary
-    public DataSourceTransactionManager retailTransactionManager(@Qualifier("retailData") DataSource dataSource) {
+    public DataSourceTransactionManager firstTransactionManager(@Qualifier("firstData") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
     @Bean
     @Primary
-    public SqlSessionTemplate retailSqlSessionTemplate(@Qualifier("retailSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+    public SqlSessionTemplate firstSqlSessionTemplate(@Qualifier("firstSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 

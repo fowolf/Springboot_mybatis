@@ -13,9 +13,9 @@ import java.util.List;
 @Mapper
 public interface CouponBatchInfoMapper {
 
-    @Select("select * from CouponBatchInfo")
+    @Select("select * from table")
     List<CouponBatchInfo> findAll();
 
-    @Select("select * from CouponBatchInfo where id = #{id}")
+    @Select("select * from table where id = #{id}")
     CouponBatchInfo findById(int id);
 }

@@ -6,8 +6,10 @@ import com.myuserid.pojo.request.IdRequest;
 import com.myuserid.pojo.request.ShopDataAnchorRequest;
 import com.myuserid.pojo.response.APIResponse;
 import com.myuserid.pojo.response.ShopDataAnchorResponse;
+import com.myuserid.service.IPKeyService;
 import com.myuserid.service.IShopDataAnchorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -48,6 +50,7 @@ public class StShopDataAnchorController {
     @ResponseBody
     public ResponseEntity<APIResponse<StShopDataAnchor>> update(@RequestBody ShopDataAnchorRequest request) {
         APIResponse<StShopDataAnchor> response = shopDataAnchorService.update(request);
+
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

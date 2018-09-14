@@ -1,6 +1,6 @@
 package com.myuserid.service.impl;
 
-import com.myuserid.dao.retailX.StShopDataAnchorMapper;
+import com.myuserid.dao.retail.StShopDataAnchorMapper;
 import com.myuserid.pojo.dbentity.StShopDataAnchor;
 import com.myuserid.pojo.enums.StatusCode;
 import com.myuserid.pojo.request.ShopDataAnchorRequest;

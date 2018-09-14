@@ -1,19 +1,17 @@
 spring:
   datasource:
-    retail-datasource:
-      jdbc-url: jdbc:mysql://l-db2-1.dev.cn2.corp.agrant.cn:3306/RETAIL?useUnicode=true&amp;characterEncoding=utf-8
-      username: AGADP
-      password: M5ZwuB8aQechsZmhkGQ6EGXpFbyQTUmESEnM7592wc19nA0CpPo7a5jYS4Lc
+    first-datasource:
+      jdbc-url: jdbc:mysql://xxxx:3306/db?useUnicode=true&amp;characterEncoding=utf-8
+      username: username
+      password: password
       driver-class-name: com.mysql.jdbc.Driver
-    retailx-datasource:
-       jdbc-url: jdbc:mysql://l-db2-1.dev.cn2.corp.agrant.cn:3306/RETAIL?useUnicode=true&amp;characterEncoding=utf-8
-       username: AGADP
-       password: M5ZwuB8aQechsZmhkGQ6EGXpFbyQTUmESEnM7592wc19nA0CpPo7a5jYS4Lc
+    second-datasource:
+       jdbc-url: jdbc:mysql://xxxx:3306/db?useUnicode=true&amp;characterEncoding=utf-8
+       username: username
+       password: password
        driver-class-name: com.mysql.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
 
-app:
-  secret: cue_key
 
